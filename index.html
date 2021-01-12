@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getAera(width,height)
+        {
+            //如果存在多个参数时，可以使用arguments（参数）数组来接收
+            var length=arguments.length;
+            for(var i=0;i<length;i++){
+                document.write("当前参数对应的值为："+arguments[i]+"<br>");
+            }
+        }
+        // getAera(3,4);
+        // getAera();
+        // getAera(3,4,4,3,5,6,7,8);
+
+
+        //编写一个函数计算各公司人数和工资，并计算出各公司人数和总工资
+        // function countSalary(){
+        //     var number=arguments.length;
+        //     var sum=0;//工资
+        //     for(var i=0;i<number;i++)
+        //     {
+        //         sum +=arguments[i];
+
+        //     }
+           
+        //     document.write("公司总人数为："+number+",工资总和为："+sum+"<br>");
+        // }
+        // document.write("A");
+        // countSalary(234854,46874,414,68,742,18,7,14251,874,325,41687,65846,546546,4897,4654,68744,654,6541,793,55246,887);
+        // document.write("B");
+        // countSalary(234854,41687,65846,546546,4897,4654,68744,654,6541,793,55246,887);
+
+
+
+        //匿名函数的使用（没有名称的函数）
+        //语法一：
+        // (function(width,height){
+        //     var area=width*height;
+        //     document.write("面积为："+area);
+        // })(3,4);
+        
+
+        //语法三：
+        // var getAera=function(width,height){
+        //     var area=width*height;
+        //     document.write("面积为："+area);
+        // };
+        // getAera(4,5);
+
+
+            //全局变量
+           
+            //系统函数
+            //把字符串转换为整数
+            document.write(parseInt("155abc")+"<br>");
+            document.write(parseInt("abc155")+"<br>");
+            document.write(parseInt("1")+"<br>");
+            document.write(parseInt("-1")+"<br>");
+            document.write(parseInt("1.222")+"<br>");
+
+
+            //把字符串转换为小数
+            document.write(parseFloat("155.6546abc")+"<br>");
+            document.write(parseFloat("abc1502.32")+"<br>");
+            document.write(parseFloat("-155.6")+"<br>");
+            document.write(parseFloat("155")+"<br>");
+            document.write(parseFloat(".6546abc")+"<br>");
+
+
+            //判断某个值是否为数字类型    isNaN()判断值为数字类型时返回false，如果不是数字类型返回true
+            document.write(isNaN("155")+"<br>");
+            document.write(isNaN("155aaa")+"<br>");
+            document.write(isNaN("15.5")+"<br>");
+            document.write(isNaN("-155")+"<br>");
+            document.write(isNaN(" ")+"<br>");//空格也为数字类型
+            document.write(isNaN(".7")+"<br>");
+
+          
+
+    </script>
+</head>
+<body>
+    <input type="text" name="nuumber" id="num">
+    <input type="button" name="判度" id="btn">
+
+
+
+    求值：<input type="text" name="" id="count" >
+    
+    <input type="button" value="计算" onclick="count()">
+
+
+    <!-- 点击p标签，字体放大 -->
+    <p onclick="maxSize(thia)">字体点击放大效果！！</p>
+    <p id="text">点击放大字体</p>
+
+
+
+<!-- onchange事件 改变事件 -->
+<select name="" id="select" onchange=""></select>
+
+
+    <script>
+
+
+
+
+
+
+
+
+        function maxSize(obj){
+            // 点击时改变字体大小
+            obj.style.fontSize=30+"px";
+        }
+        //单独给标签绑定事件
+        document.getElementById("text").onclick=function(){
+            document.getElementById("text").style.fontSize=30+"px";
+        }
+
+
+
+
+
+        //求值
+        function count(){
+            var obj=document.getElementById("count");
+            var val=obj.Value;
+            //eval可以执行js代码
+            var result=eval(val);
+            alert(result);
+        }
+
+
+
+
+
+
+
+
+
+
+      //使用isNaN（）函数验证文本框中输入的内容是否是数值
+            //通过ID名获取一个元素
+            var number=document.getElementById("num");
+            var btn=document.getElementById("btn");
+            //当点击按钮时去获取框的值回来
+            btn.onclick=function(){
+                //获取这个值
+                var val=number.Value.trim();
+                //只要其中一个条件不满足，都算是非数字
+                if(val==""||isNaN(val)){
+                    alert("请输入正确的数字值！")
+                }
+                else{
+                    alert("输入的值是数字！")
+                }
+            }
+    </script>
+</body>
+</html>
