@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡切换</title>
+    <script src="./jquery-3.3.1.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        #box{
+            width: 400px;
+            border: 1px solid goldenrod;
+            margin: 30px;
+        }
+        #box ul li{
+            float: left;
+            width: 100px;
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+
+        }
+        .active{
+            background: #ccc;
+
+        }
+        .content div{
+            display: none;
+            height: 300px;
+        }
+        /* 选中第一个盒子，让它展现出来 */
+        .content div:nth-child(1){
+            display: block;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="box">
+        <ul>
+            <li>新闻</li>
+            <li>游戏</li>
+            <li>热点</li>
+            <li>其他</li>
+        </ul>
+        <div class="content">
+            <div>新闻盒子列表</div>
+            <div>游戏列表</div>
+            <div>热点新闻</div>
+            <div>其他</div>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            //each（） 叫循环遍历方法，function（index）{}   index是一个索引
+           $("#box li").each(function(index){
+            $(this).mouseover(function(){
+                //先把前面的盒子都隐藏和样式都清空
+                $("#box li").each(function(i){
+                    //移出类名
+                    $(this).removeClass("active");
+                    //隐藏盒子
+                    $(".content div").eq(i).hide();
+                })
+
+                //鼠标移入第几号时加一个样式名
+               $(this).addClass("active");
+               //让对应序号的盒子出来
+               $(".content div").eq(index).show();
+
+           })
+           
+           }) ;
+        });
+    </script>
+
+
+
+
+</body>
+</html>
